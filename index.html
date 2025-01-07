@@ -3,19 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AR Mode with 3D Model</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
 </head>
-<body>
-
+<body style="margin: 0; overflow: hidden;">
+    <!-- Scene for AR -->
     <a-scene embedded arjs>
+        <!-- Marker -->
         <a-marker preset="hiro">
-            <a-box position="0 0.5 0" material="color: yellow;"></a-box>
+            <!-- Load and display the 3D model -->
+            <a-entity 
+                gltf-model="https://cdn.jsdelivr.net/gh/KhronosGroup/glTF-Sample-Models/2.0/DamagedHelmet/glTF/DamagedHelmet.gltf" 
+                scale="0.5 0.5 0.5" 
+                position="0 0 0" 
+                rotation="0 180 0">
+            </a-entity>
         </a-marker>
+        
+        <!-- Camera -->
         <a-entity camera></a-entity>
     </a-scene>
-
-    
 </body>
 </html>
